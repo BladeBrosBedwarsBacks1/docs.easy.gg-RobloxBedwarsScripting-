@@ -1,13 +1,13 @@
 -- Fill in spaces that say STRING.… or the script will not work.
-AbilityService.createAbility("STRING.AbilityName", KeyCode.X, {
-    maxProgress = 10,
-    progressPerUse = 5,
+AbilityService.createAbility("STRING.AbilityName", KeyCode.STRING.KeyCode, {
+    maxProgress = STRING.MaxCooldown,
+    progressPerUse = STRING.CooldownPerUse,
 })
 
-AbilityService.enableAbility(MatchService.getHost(), "STRING.AbilityName")
+AbilityService.enableAbility(STRING.Players, "STRING.AbilityName")
 
 Events.UseAbility(function (event)
     if (event.abilityName == "STRING.AbilityName") then
-        StatusEffectService.giveEffect(event.entity, StatusEffectType.STRING.AbilityType, 2)
+        StatusEffectService.giveEffect(event.entity, StatusEffectType.STRING.AbilityType, STRING.Stack)
     end
 end)
